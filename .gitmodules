@@ -1,0 +1,6 @@
+[submodule "biobot-cloud"]
+	path = biobot-cloud
+	url = https://github.com/biobotproject-org/biobot-cloud
+[submodule "biobot-dashboard"]
+	path = biobot-dashboard
+	url = https://github.com/biobotproject-org/biobot-dashboard
