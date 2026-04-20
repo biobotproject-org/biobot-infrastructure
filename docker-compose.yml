@@ -26,6 +26,8 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
       NODE_ENV: production
+    ports:
+        - "3000:3000"
     depends_on:
       db:
         condition: service_healthy
