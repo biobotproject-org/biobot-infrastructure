@@ -19,7 +19,9 @@ project roadmap and is not yet part of this stack.
 
 ## Secrets
 
-`.env` holds the database passwords and the JWT signing secret. It is
+`.env` holds the database passwords, the JWT signing secret, the token the
+Notehub route uses to reach the API, and the SMTP settings for incident
+emails. Every value is documented in `.env.example`. It is
 git-ignored and must never be committed. Generate values with
 `openssl rand -base64 32`.
 

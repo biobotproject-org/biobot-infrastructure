@@ -26,6 +26,17 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       JWT_SECRET: ${JWT_SECRET}
       NODE_ENV: production
+      # Notehub route -> API (see biobot-cloud/.env.example)
+      NOTEHUB_INGEST_TOKEN: ${NOTEHUB_INGEST_TOKEN}
+      # Incident emails; leave SMTP_HOST empty to disable
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      ALERT_EMAIL_FROM: ${ALERT_EMAIL_FROM:-BioBot <alerts@example.com>}
+      ALERT_EMAIL_TO: ${ALERT_EMAIL_TO:-}
+      DASHBOARD_URL: ${DASHBOARD_URL:-}
     ports:
         - "3000:3000"
     depends_on:
