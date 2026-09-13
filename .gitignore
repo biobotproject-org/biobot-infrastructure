@@ -12,3 +12,6 @@
 .idea/
 .vscode/
 .DS_Store
+
+# Browser automation artifacts
+.playwright-mcp/

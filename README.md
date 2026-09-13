@@ -19,11 +19,26 @@ project roadmap and is not yet part of this stack.
 
 ## Secrets
 
-`.env` holds the database passwords, the JWT signing secret, the token the
-Notehub route uses to reach the API, and the SMTP settings for incident
-emails. Every value is documented in `.env.example`. It is
-git-ignored and must never be committed. Generate values with
+`.env` holds the database passwords, the JWT signing secret, and the SMTP
+settings for incident emails. Every value is documented in `.env.example`.
+It is git-ignored and must never be committed. Generate values with
 `openssl rand -base64 32`.
+
+The Notehub route authenticates with an **ingest key** created in the
+dashboard (API Keys, New key, scope Notehub ingest). Such a key can only
+deliver sensor data to `POST /ingest/notehub`; it is stored hashed and can
+be revoked from the same page. `NOTEHUB_INGEST_TOKEN` in `.env` is
+optional and legacy: if set, the API still accepts it as a fallback and
+logs a deprecation warning.
+
+## Simulating a node
+
+```sh
+INGEST_TOKEN=<ingest key from the dashboard> python3 biobot-cloud/scripts/notehub-sim.py --device biobot-010 --name "Test Ridge"
+```
+
+Add `--leave-open` to stop after the escalation and keep the incident
+open for dashboard work.
 
 Earlier revisions of this repository committed a real `.env` and a zip
 archive containing another one. Those values must be treated as public:
