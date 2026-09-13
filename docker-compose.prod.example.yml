@@ -1,0 +1,21 @@
+# Production override example.
+#
+# Copy this file to docker-compose.override.yml on the server (it is
+# git-ignored there). Compose loads docker-compose.override.yml automatically,
+# so `docker compose up -d --build` keeps working unchanged.
+#
+# What it changes against docker-compose.yml:
+#   - frontend: published only on loopback (127.0.0.1:8085) for the host
+#     reverse proxy. The dashboard's nginx forwards /api/ to backend:3000 on
+#     the compose network, so one public hostname is enough.
+#   - backend: not published at all. Reachable only from the frontend container.
+#   - db: never published (already the case in the base file).
+#
+# The `!override` tag (Compose >= 2.24) replaces the base `ports` list instead
+# of appending to it; without it the base 80:80 and 3000:3000 would stay published.
+services:
+  backend:
+    ports: !override []
+  frontend:
+    ports: !override
+      - "127.0.0.1:8085:80"

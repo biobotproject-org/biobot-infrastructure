@@ -15,3 +15,6 @@
 
 # Browser automation artifacts
 .playwright-mcp/
+
+# Server-specific compose override (see docker-compose.prod.example.yml)
+docker-compose.override.yml
