@@ -1,6 +1,6 @@
-# biobot-infrastructure
+# Wildfire Alarm infrastructure (biobot-infrastructure)
 
-Docker Compose stack for the BioBot backend: MariaDB, the `biobot-cloud`
+Docker Compose stack for the Wildfire Alarm backend: MariaDB, the `biobot-cloud`
 API, and the `biobot-dashboard` web app. The two applications are git
 submodules.
 
